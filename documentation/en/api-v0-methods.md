@@ -178,6 +178,7 @@
   * [StateMinerSectors](#StateMinerSectors)
   * [StateNetworkName](#StateNetworkName)
   * [StateNetworkVersion](#StateNetworkVersion)
+  * [StatePledgeCollateral](#StatePledgeCollateral)
   * [StateReadState](#StateReadState)
   * [StateReplay](#StateReplay)
   * [StateSearchMsg](#StateSearchMsg)
@@ -4518,6 +4519,44 @@ Inputs:
 ```
 
 Response: `11`
+
+### StatePledgeCollateral
+StatePledgeCollateral returns the precommit deposit and initial pledge collateral for the specified miner's sector
+TODO: remove StateMinerPreCommitDepositForPower and StateMinerInitialPledgeCollateral if StatePledgeCollateral accepted
+
+
+Perms: 
+
+Inputs:
+```json
+[
+  "f01234",
+  {
+    "SealProof": 8,
+    "SectorNumber": 9,
+    "SealedCID": {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    "SealRandEpoch": 10101,
+    "DealIDs": null,
+    "Expiration": 10101,
+    "ReplaceCapacity": true,
+    "ReplaceSectorDeadline": 42,
+    "ReplaceSectorPartition": 42,
+    "ReplaceSectorNumber": 9
+  },
+  [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ]
+]
+```
+
+Response: `"0"`
 
 ### StateReadState
 StateReadState returns the indicated actor's state.
