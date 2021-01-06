@@ -4525,7 +4525,7 @@ StatePledgeCollateral returns the precommit deposit and initial pledge collatera
 TODO: remove StateMinerPreCommitDepositForPower and StateMinerInitialPledgeCollateral if StatePledgeCollateral accepted
 
 
-Perms: 
+Perms: read
 
 Inputs:
 ```json
@@ -4556,7 +4556,13 @@ Inputs:
 ]
 ```
 
-Response: `"0"`
+Response:
+```json
+{
+  "Deposit": "0",
+  "InitialPledge": "0"
+}
+```
 
 ### StateReadState
 StateReadState returns the indicated actor's state.

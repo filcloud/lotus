@@ -2456,13 +2456,12 @@ func (mr *MockFullNodeMockRecorder) StateNetworkVersion(arg0, arg1 interface{}) 
 }
 
 // StatePledgeCollateral mocks base method
-func (m *MockFullNode) StatePledgeCollateral(arg0 context.Context, arg1 address.Address, arg2 miner0.SectorPreCommitInfo, arg3 types.TipSetKey) (big.Int, big.Int, error) {
+func (m *MockFullNode) StatePledgeCollateral(arg0 context.Context, arg1 address.Address, arg2 miner0.SectorPreCommitInfo, arg3 types.TipSetKey) (*api.PledgeCollateral, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "StatePledgeCollateral", arg0, arg1, arg2, arg3)
-	ret0, _ := ret[0].(big.Int)
-	ret1, _ := ret[1].(big.Int)
-	ret2, _ := ret[2].(error)
-	return ret0, ret1, ret2
+	ret0, _ := ret[0].(*api.PledgeCollateral)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
 }
 
 // StatePledgeCollateral indicates an expected call of StatePledgeCollateral
