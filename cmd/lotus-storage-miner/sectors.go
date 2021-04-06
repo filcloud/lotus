@@ -911,17 +911,12 @@ var sectorsCapacityCollateralCmd = &cli.Command{
 			pci.Expiration = policy.GetMaxSectorExpirationExtension() + h.Height()
 		}
 
-		pc, err := nApi.StateMinerInitialPledgeCollateral(ctx, maddr, pci, types.EmptyTSK)
+		collateral, err := nApi.StatePledgeCollateral(ctx, maddr, pci, types.EmptyTSK)
 		if err != nil {
 			return err
 		}
 
-		pcd, err := nApi.StateMinerPreCommitDepositForPower(ctx, maddr, pci, types.EmptyTSK)
-		if err != nil {
-			return err
-		}
-
-		fmt.Printf("Estimated collateral: %s\n", types.FIL(big.Max(pc, pcd)))
+		fmt.Printf("Estimated collateral: %s\n", types.FIL(big.Max(collateral.InitialPledge, collateral.Deposit)))
 
 		return nil
 	},
