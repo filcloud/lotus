@@ -870,7 +870,7 @@ var sectorsCapacityCollateralCmd = &cli.Command{
 	},
 	Action: func(cctx *cli.Context) error {
 
-		nApi, nCloser, err := lcli.GetFullNodeAPI(cctx)
+		nApi, nCloser, err := lcli.GetFullNodeAPIV1(cctx)
 		if err != nil {
 			return err
 		}
