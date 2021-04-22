@@ -43,5 +43,4 @@ bin/ipget
 bin/tmp/*
 .idea
 scratchpad
-proxy_gen.go
 
