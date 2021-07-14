@@ -276,9 +276,7 @@ func (m *Sealing) handlePreCommitting(ctx statemachine.Context, sector SectorInf
 
 	msd := policy.GetMaxProveCommitDuration(actors.VersionForNetwork(nv), sector.SectorType)
 
-	// Assume: both precommit msg & commit msg land on chain as late as possible
-	minExpiration := sector.TicketEpoch + policy.MaxPreCommitRandomnessLookback + msd + miner.MinSectorExpiration
-	if expiration < minExpiration {
+	if minExpiration := height + msd + miner.MinSectorExpiration + 10; expiration < minExpiration {
 		expiration = minExpiration
 	}
 
